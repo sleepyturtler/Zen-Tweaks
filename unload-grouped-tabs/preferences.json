@@ -7,7 +7,7 @@
   },
   {
     "property": "mod.unload-grouped-tabs.dim-text",
-    "label": "Dim the text of unloaded tabs inside groups",
+    "label": "Dim unloaded tabs inside groups (same look as the Unloaded Tabs mod)",
     "type": "checkbox",
     "defaultValue": true
   },
