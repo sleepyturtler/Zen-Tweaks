@@ -1,0 +1,18 @@
+/* Page Corners fix for Zen: gives the page and its containers one matching corner
+   radius. Change 10px to taste. */
+
+/* ---------- Page corners: match radii ---------- */
+
+/* Give the page and the frame around it the same corner radius so no wedge
+   of background shows. Change 10px to taste. The variable names are Zen's
+   own as far as I know; the selectors are best guesses. */
+:root {
+  --zen-border-radius: 10px !important;
+  --zen-native-inner-radius: 10px !important;
+}
+#tabbrowser-tabpanels,
+.browserSidebarContainer,
+.browserContainer,
+browser[type="content"] {
+  border-radius: 10px !important;
+}

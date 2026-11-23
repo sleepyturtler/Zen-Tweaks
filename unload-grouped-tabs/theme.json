@@ -1,0 +1,27 @@
+{
+    "id": "unload-grouped-tabs",
+    "name": "Unload Grouped Tabs",
+    "description": "Adds an Unload All Tabs entry to the Advanced Tab Groups right-click menu.",
+    "scripts": {
+        "unload-grouped-tabs.uc.js": {
+            "include": [
+                "chrome://browser/content/browser.xhtml"
+            ],
+            "loadOrder": 30
+        }
+    },
+    "homepage": "",
+    "style": {
+        "chrome": "",
+        "content": ""
+    },
+    "preferences": "",
+    "version": "1.0.0",
+    "author": "local",
+    "tags": [
+        "Tab Groups"
+    ],
+    "fork": [
+        "zen"
+    ]
+}

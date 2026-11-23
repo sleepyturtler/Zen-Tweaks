@@ -1,0 +1,368 @@
+[
+  {
+    "property": "mod.zen-menu-hider.tab-new-tab-below",
+    "label": "Tab menu: New Tab Below",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-move-to-folder",
+    "label": "Tab menu: Move to Folder",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-add-to-group",
+    "label": "Tab menu: Add Tab to Group",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-group-selected",
+    "label": "Tab menu: Group Selected Tabs",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-remove-from-group",
+    "label": "Tab menu: Remove from Group",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-split-view",
+    "label": "Tab menu: Add Split View",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-reload",
+    "label": "Tab menu: Reload Tab",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-mute",
+    "label": "Tab menu: Mute Tab",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-essentials",
+    "label": "Tab menu: Add to Essentials",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-pin",
+    "label": "Tab menu: Pin Tab",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-unload",
+    "label": "Tab menu: Unload Tab",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-duplicate",
+    "label": "Tab menu: Duplicate Tab",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-bookmark",
+    "label": "Tab menu: Bookmark Tab",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-move-tab",
+    "label": "Tab menu: Move Tab",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-share",
+    "label": "Tab menu: Share",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-container",
+    "label": "Tab menu: Open in New Container Tab",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-select-all",
+    "label": "Tab menu: Select All Tabs",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-send-mobile",
+    "label": "Tab menu: Send to Mobile",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-change-label",
+    "label": "Tab menu: Change Label",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-change-icon",
+    "label": "Tab menu: Change Icon",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-close",
+    "label": "Tab menu: Close Tab",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-close-duplicates",
+    "label": "Tab menu: Close Duplicate Tabs",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-close-multiple",
+    "label": "Tab menu: Close Multiple Tabs",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-reopen-closed",
+    "label": "Tab menu: Reopen Closed Tab",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.tab-add-route",
+    "label": "Tab menu: Add Route for Domain (extension)",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-navigation",
+    "label": "Page menu: Back / Forward / Reload row",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-save",
+    "label": "Page menu: Save Page As",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-select-all",
+    "label": "Page menu: Select All",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-screenshot",
+    "label": "Page menu: Take Screenshot",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.page-view-source",
+    "label": "Page menu: View Page Source",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-view-info",
+    "label": "Page menu: View Page Info",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-inspect-a11y",
+    "label": "Page menu: Inspect Accessibility Properties",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-inspect",
+    "label": "Page menu: Inspect",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-send-mobile",
+    "label": "Page menu: Send Page to Mobile",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.page-translate",
+    "label": "Page menu: Translate (page, selection or link text)",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.page-ublock-block",
+    "label": "Page menu: Block element (uBlock Origin)",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.page-copy",
+    "label": "Page menu: Copy",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-cut",
+    "label": "Page menu: Cut",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-paste",
+    "label": "Page menu: Paste",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-search-selection",
+    "label": "Page menu: Search for selected text",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.page-print-selection",
+    "label": "Page menu: Print Selection",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.link-new-tab",
+    "label": "Link menu: Open Link in New Tab",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.link-container",
+    "label": "Link menu: Open Link in New Container Tab",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.link-new-window",
+    "label": "Link menu: Open Link in New Window",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.link-private-window",
+    "label": "Link menu: Open Link in New Private Window",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.link-preview",
+    "label": "Link menu: Preview Link",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.link-glance",
+    "label": "Link menu: Open Link in Glance",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.link-split",
+    "label": "Link menu: Split Link to New Tab",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.link-bookmark",
+    "label": "Link menu: Bookmark Link",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.link-save",
+    "label": "Link menu: Save Link As",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.link-copy",
+    "label": "Link menu: Copy Link",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.link-copy-clean",
+    "label": "Link menu: Copy Clean Link",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.link-send-mobile",
+    "label": "Link menu: Send Link to Mobile",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.image-open",
+    "label": "Image menu: Open Image in New Tab",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.image-save",
+    "label": "Image menu: Save Image As",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.image-copy",
+    "label": "Image menu: Copy Image",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.image-copy-link",
+    "label": "Image menu: Copy Image Link",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.image-email",
+    "label": "Image menu: Email Image",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.image-lens",
+    "label": "Image menu: Search Image with Google Lens",
+    "type": "checkbox",
+    "defaultValue": false
+  },
+  {
+    "property": "mod.zen-menu-hider.image-wallpaper",
+    "label": "Image menu: Set Image as Desktop Background",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.zen-menu-hider.tidy-dividers",
+    "label": "Tidy leftover double dividers (tuned for the default hidden set)",
+    "type": "checkbox",
+    "defaultValue": true
+  }
+]

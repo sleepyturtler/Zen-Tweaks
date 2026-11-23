@@ -1,0 +1,458 @@
+/* Context Menu Hider for Zen. Every entry below is switched by its own checkbox in
+   the mod's settings (preference names start with mod.zen-menu-hider.).
+   Entries are matched by their standard Firefox ID or likely Zen ID, with the
+   localization id as a backup, so some may not match on your Zen version. */
+
+/* Tab menu: New Tab Below */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-new-tab-below") {
+  #tabContextMenu #context_openANewTab {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Move to Folder */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-move-to-folder") {
+  #tabContextMenu #context_zenMoveToFolder,
+  #tabContextMenu #context_zenAddToFolder,
+  #tabContextMenu #context_zen-add-to-folder,
+  #tabContextMenu #context_zenMoveTabToFolder,
+  #tabContextMenu [data-l10n-id*="folder"] {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Add Tab to Group */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-add-to-group") {
+  #tabContextMenu #context_moveTabToGroup {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Group Selected Tabs */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-group-selected") {
+  #tabContextMenu #atg-group-selected-tabs {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Remove from Group */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-remove-from-group") {
+  #tabContextMenu #context_ungroupTab {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Add Split View */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-split-view") {
+  #tabContextMenu #context_zenSplitTabs,
+  #tabContextMenu [data-l10n-id*="split"] {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Reload Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-reload") {
+  #tabContextMenu #context_reloadTab,
+  #tabContextMenu #context_reloadSelectedTabs,
+  #tabContextMenu [data-l10n-id*="reload-tab"] {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Mute Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-mute") {
+  #tabContextMenu #context_toggleMuteTab,
+  #tabContextMenu #context_toggleMuteSelectedTabs,
+  #tabContextMenu [data-l10n-id*="mute-tab"] {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Add to Essentials */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-essentials") {
+  #tabContextMenu #context_zen-add-essential,
+  #tabContextMenu [data-l10n-id*="essential"] {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Pin Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-pin") {
+  #tabContextMenu #context_pinTab,
+  #tabContextMenu #context_unpinTab,
+  #tabContextMenu #context_zen-pin-tab,
+  #tabContextMenu [data-l10n-id*="pin-tab"] {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Unload Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-unload") {
+  #tabContextMenu #context_zenUnloadTab,
+  #tabContextMenu [data-l10n-id*="unload"] {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Duplicate Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-duplicate") {
+  #tabContextMenu #context_duplicateTab,
+  #tabContextMenu #context_duplicateTabs {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Bookmark Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-bookmark") {
+  #tabContextMenu #context_bookmarkTab,
+  #tabContextMenu #context_bookmarkSelectedTabs {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Move Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-move-tab") {
+  #tabContextMenu #context_moveTabOptions {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Share */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-share") {
+  #tabContextMenu #context_shareTabURL,
+  #tabContextMenu .share-tab-url-item,
+  #tabContextMenu [data-l10n-id="tab-context-share-url"] {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Open in New Container Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-container") {
+  #tabContextMenu #context_reopenInContainer {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Select All Tabs */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-select-all") {
+  #tabContextMenu #context_selectAllTabs {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Send to Mobile */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-send-mobile") {
+  #tabContextMenu #context_sendTabToDevice {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Change Label */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-change-label") {
+  #tabContextMenu #context_zen-edit-tab-title {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Change Icon */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-change-icon") {
+  #tabContextMenu #context_zen-edit-tab-icon {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Close Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-close") {
+  #tabContextMenu #context_closeTab {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Close Duplicate Tabs */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-close-duplicates") {
+  #tabContextMenu #context_closeDuplicateTabs {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Close Multiple Tabs */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-close-multiple") {
+  #tabContextMenu #context_closeTabOptions {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Reopen Closed Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-reopen-closed") {
+  #tabContextMenu #context_undoCloseTab {
+    display: none !important;
+  }
+}
+
+/* Tab menu: Add Route for Domain (extension) */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tab-add-route") {
+  #tabContextMenu menuitem[label^="Add Route"] {
+    display: none !important;
+  }
+}
+
+/* Page menu: Back / Forward / Reload row */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-navigation") {
+  #contentAreaContextMenu #context-navigation {
+    display: none !important;
+  }
+}
+
+/* Page menu: Save Page As */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-save") {
+  #contentAreaContextMenu #context-savepage {
+    display: none !important;
+  }
+}
+
+/* Page menu: Select All */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-select-all") {
+  #contentAreaContextMenu #context-selectall {
+    display: none !important;
+  }
+}
+
+/* Page menu: Take Screenshot */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-screenshot") {
+  #contentAreaContextMenu #context-take-screenshot {
+    display: none !important;
+  }
+}
+
+/* Page menu: View Page Source */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-view-source") {
+  #contentAreaContextMenu #context-viewsource {
+    display: none !important;
+  }
+}
+
+/* Page menu: View Page Info */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-view-info") {
+  #contentAreaContextMenu #context-viewinfo {
+    display: none !important;
+  }
+}
+
+/* Page menu: Inspect Accessibility Properties */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-inspect-a11y") {
+  #contentAreaContextMenu #context-inspect-a11y {
+    display: none !important;
+  }
+}
+
+/* Page menu: Inspect */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-inspect") {
+  #contentAreaContextMenu #context-inspect {
+    display: none !important;
+  }
+}
+
+/* Page menu: Send Page to Mobile */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-send-mobile") {
+  #contentAreaContextMenu #context-sendpagetodevice {
+    display: none !important;
+  }
+}
+
+/* Page menu: Translate (page, selection or link text) */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-translate") {
+  #contentAreaContextMenu #context-translate-selection,
+  #contentAreaContextMenu #context-translate-page,
+  #contentAreaContextMenu [data-l10n-id*="translate"] {
+    display: none !important;
+  }
+}
+
+/* Page menu: Block element (uBlock Origin) */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-ublock-block") {
+  #contentAreaContextMenu menuitem[label^="Block element"],
+  #contentAreaContextMenu .webextension-menuitem[label^="Block element"] {
+    display: none !important;
+  }
+}
+
+/* Page menu: Copy */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-copy") {
+  #contentAreaContextMenu #context-copy {
+    display: none !important;
+  }
+}
+
+/* Page menu: Cut */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-cut") {
+  #contentAreaContextMenu #context-cut {
+    display: none !important;
+  }
+}
+
+/* Page menu: Paste */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-paste") {
+  #contentAreaContextMenu #context-paste {
+    display: none !important;
+  }
+}
+
+/* Page menu: Search for selected text */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-search-selection") {
+  #contentAreaContextMenu #context-searchselect {
+    display: none !important;
+  }
+}
+
+/* Page menu: Print Selection */
+@media (-moz-bool-pref: "mod.zen-menu-hider.page-print-selection") {
+  #contentAreaContextMenu #context-print-selection {
+    display: none !important;
+  }
+}
+
+/* Link menu: Open Link in New Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-new-tab") {
+  #contentAreaContextMenu #context-openlinkintab {
+    display: none !important;
+  }
+}
+
+/* Link menu: Open Link in New Container Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-container") {
+  #contentAreaContextMenu #context-openlinkinusercontext-menu {
+    display: none !important;
+  }
+}
+
+/* Link menu: Open Link in New Window */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-new-window") {
+  #contentAreaContextMenu #context-openlink {
+    display: none !important;
+  }
+}
+
+/* Link menu: Open Link in New Private Window */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-private-window") {
+  #contentAreaContextMenu #context-openlinkprivate {
+    display: none !important;
+  }
+}
+
+/* Link menu: Preview Link */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-preview") {
+  #contentAreaContextMenu [data-l10n-id*="preview"] {
+    display: none !important;
+  }
+}
+
+/* Link menu: Open Link in Glance */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-glance") {
+  #contentAreaContextMenu [data-l10n-id*="glance"] {
+    display: none !important;
+  }
+}
+
+/* Link menu: Split Link to New Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-split") {
+  #contentAreaContextMenu [data-l10n-id*="split"] {
+    display: none !important;
+  }
+}
+
+/* Link menu: Bookmark Link */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-bookmark") {
+  #contentAreaContextMenu #context-bookmarklink {
+    display: none !important;
+  }
+}
+
+/* Link menu: Save Link As */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-save") {
+  #contentAreaContextMenu #context-savelink {
+    display: none !important;
+  }
+}
+
+/* Link menu: Copy Link */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-copy") {
+  #contentAreaContextMenu #context-copylink {
+    display: none !important;
+  }
+}
+
+/* Link menu: Copy Clean Link */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-copy-clean") {
+  #contentAreaContextMenu #context-zen-copy-clean-link,
+  #contentAreaContextMenu [data-l10n-id*="clean"] {
+    display: none !important;
+  }
+}
+
+/* Link menu: Send Link to Mobile */
+@media (-moz-bool-pref: "mod.zen-menu-hider.link-send-mobile") {
+  #contentAreaContextMenu #context-sendlinktodevice {
+    display: none !important;
+  }
+}
+
+/* Image menu: Open Image in New Tab */
+@media (-moz-bool-pref: "mod.zen-menu-hider.image-open") {
+  #contentAreaContextMenu #context-viewimage {
+    display: none !important;
+  }
+}
+
+/* Image menu: Save Image As */
+@media (-moz-bool-pref: "mod.zen-menu-hider.image-save") {
+  #contentAreaContextMenu #context-saveimage {
+    display: none !important;
+  }
+}
+
+/* Image menu: Copy Image */
+@media (-moz-bool-pref: "mod.zen-menu-hider.image-copy") {
+  #contentAreaContextMenu #context-copyimage-contents {
+    display: none !important;
+  }
+}
+
+/* Image menu: Copy Image Link */
+@media (-moz-bool-pref: "mod.zen-menu-hider.image-copy-link") {
+  #contentAreaContextMenu #context-copyimage {
+    display: none !important;
+  }
+}
+
+/* Image menu: Email Image */
+@media (-moz-bool-pref: "mod.zen-menu-hider.image-email") {
+  #contentAreaContextMenu #context-sendimage {
+    display: none !important;
+  }
+}
+
+/* Image menu: Search Image with Google Lens */
+@media (-moz-bool-pref: "mod.zen-menu-hider.image-lens") {
+  #contentAreaContextMenu #context-searchlens,
+  #contentAreaContextMenu [data-l10n-id*="lens"] {
+    display: none !important;
+  }
+}
+
+/* Image menu: Set Image as Desktop Background */
+@media (-moz-bool-pref: "mod.zen-menu-hider.image-wallpaper") {
+  #contentAreaContextMenu #context-setDesktopBackground {
+    display: none !important;
+  }
+}
+
+/* Tidy leftover double dividers (tuned for the default hidden set) */
+@media (-moz-bool-pref: "mod.zen-menu-hider.tidy-dividers") {
+  #tabContextMenu #context_zen-edit-tab-icon + menuseparator,
+  #tabContextMenu #context_sendTabToDevice + menuseparator,
+  #contentAreaContextMenu [data-l10n-id*="translate"] ~ menuseparator,
+  #contentAreaContextMenu menuseparator:has(+ #context-inspect-a11y),
+  #contentAreaContextMenu menuseparator:has(+ [hidden] + #context-inspect-a11y) {
+    display: none !important;
+  }
+}

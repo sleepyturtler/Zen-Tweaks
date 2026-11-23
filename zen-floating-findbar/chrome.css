@@ -1,0 +1,234 @@
+/* Floating Find Bar for Zen: a floating, rounded, translucent pill at the bottom
+   center of the page. Tunable values: --find-shift (centering) and the numbers
+   in the comments below. Needs no settings. */
+
+/* ---------- Floating find bar (Ctrl+F) ---------- */
+
+/* Floating pill at the bottom center of the page. Gray and translucent with a
+   blur, to look like the context menus (a Mica-like material), no theme gradient.
+   - bottom: 36px is the gap from the bottom of the window.
+   - --find-shift is about half the sidebar width (101px; screenshots are 150% scaled, so measure in CSS px, not screenshot px), so the bar centers
+     over the page. With the sidebar hidden (compact mode) it is 0px, set in
+     the rule right after the findbar block. If it is still off, change those
+     numbers: raise to move the bar right, lower to move it left.
+   - The 78% is how solid the bar is: lower = more see-through.
+   - Background comes from --arrowpanel-background, the same variable the
+     menus use; #26262a is used if it does not exist. */
+findbar {
+  position: fixed !important;
+  bottom: 36px !important;
+  top: auto !important;
+  --find-shift: 101px;
+  left: calc(50% + var(--find-shift)) !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  width: max-content !important;
+  max-width: calc(100vw - 380px) !important;
+  min-width: 0 !important;
+  gap: 8px !important;
+  z-index: 1000 !important;
+  margin: 0 !important;
+  contain: initial !important;
+  border: 1px solid color-mix(in srgb, white 14%, transparent) !important;
+  border-radius: 16px !important;
+  padding: 8px !important;
+  background-color: color-mix(in srgb, var(--arrowpanel-background, #26262a) 78%, transparent) !important;
+  background-image: none !important;
+  backdrop-filter: blur(28px) saturate(1.5) !important;
+  box-shadow: 0 12px 36px rgb(0 0 0 / 38%), 0 2px 6px rgb(0 0 0 / 22%) !important;
+  opacity: 1 !important;
+  transition: transform 0.3s ease, opacity 0.3s ease !important;
+
+  @starting-style {
+    transform: translateX(-50%) translateY(8px) !important;
+    opacity: 0 !important;
+  }
+
+  &[hidden] {
+    transform: translateX(-50%) translateY(8px) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s !important;
+    pointer-events: none !important;
+  }
+}
+
+.findbar-container {
+  height: max-content !important;
+  width: max-content !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  gap: 8px !important;
+  align-items: center !important;
+}
+/* No stray margins: spacing comes only from the 8px gaps */
+findbar .findbar-container > *,
+findbar > * {
+  margin: 0 !important;
+}
+
+.findbar-textbox {
+  flex: none !important;
+  width: 300px !important;
+  min-width: 0 !important;
+  height: 40px !important;
+  border-radius: 8px !important;
+  padding: 0 14px !important;
+  box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+  background: rgb(255 255 255 / 8%) !important;
+}
+
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-closebutton {
+  position: relative !important;
+  padding: 0 !important;
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  border-radius: 8px !important;
+  margin: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  .toolbarbutton-icon {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+}
+
+.found-matches {
+  margin: 0 4px !important;
+}
+
+/* Rounding that Zen's own styles cannot reset */
+:root findbar .findbar-textbox {
+  clip-path: inset(0 round 8px) !important;
+}
+/* No clip-path on the buttons: it cut off their hover effect. */
+:root findbar .findbar-find-previous,
+:root findbar .findbar-find-next,
+:root findbar .findbar-closebutton {
+  appearance: none !important;
+  border-radius: 8px !important;
+  background-clip: padding-box !important;
+}
+:root findbar toolbarbutton:hover {
+  background-color: rgb(255 255 255 / 12%) !important;
+}
+
+/* Match Case, Diacritics, Whole Words and the status text stay hidden for the
+   clean look. Highlight All is kept (styled as a chip below). To hide it too,
+   add ".findbar-highlight," at the top of this list. */
+.findbar-case-sensitive,
+.findbar-match-diacritics,
+.findbar-entire-word,
+.findbar-find-status {
+  display: none !important;
+}
+
+/* Highlight All as a compact chip next to the match counter */
+:root findbar .findbar-highlight {
+  display: flex !important;
+  align-items: center !important;
+  flex: 0 0 auto !important;
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 14px !important;
+  border-radius: 8px !important;
+  clip-path: inset(0 round 8px) !important;
+  background-color: rgb(255 255 255 / 8%) !important;
+  white-space: nowrap !important;
+}
+:root findbar .findbar-highlight:hover {
+  background-color: rgb(255 255 255 / 14%) !important;
+}
+
+/* Compact mode / hidden sidebar: the page fills the window, so no shift */
+:root[zen-compact-mode="true"] findbar,
+:root[zen-compact-mode] findbar {
+  --find-shift: 0px;
+}
+
+/* Text: one smaller size for everything in the bar, vertically centered */
+findbar,
+findbar * {
+  font-size: 13px !important;
+}
+.findbar-textbox {
+  font-size: 14px !important;
+  line-height: normal !important;
+}
+:root findbar .found-matches {
+  display: flex !important;
+  align-items: center !important;
+  height: 40px !important;
+  margin: 0 !important;
+  padding: 0 8px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  opacity: 0.85 !important;
+}
+:root findbar .findbar-highlight {
+  gap: 8px !important;
+  line-height: 1 !important;
+}
+:root findbar .findbar-highlight .checkbox-label-box,
+:root findbar .findbar-highlight .checkbox-label {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Vertical centering: each item centers itself in the row. The 32px buttons
+   were sitting at the top of the 40px row, which put their icons about 4px
+   too high. */
+findbar,
+findbar > .findbar-container {
+  align-items: center !important;
+}
+:root findbar .findbar-find-previous,
+:root findbar .findbar-find-next,
+:root findbar .findbar-closebutton,
+:root findbar .findbar-textbox,
+:root findbar .findbar-highlight,
+:root findbar .found-matches {
+  align-self: center !important;
+  margin-block: 0 !important;
+}
+
+/* Spacing around the arrows. The search field and the two arrow buttons live
+   together in a wrapper (.findbar-textbox-wrapper), so the row's 8px gap does
+   not apply between them. That left the arrows touching each other and sitting
+   closer to the Highlight All chip than to the field. Gaps are set by hand here:
+   8px field to arrows, 4px between the two arrows, and the row's 8px gap
+   from the arrows to the chip. */
+:root findbar .findbar-textbox-wrapper {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+:root findbar .findbar-textbox-wrapper > * {
+  margin: 0 !important;
+}
+:root findbar .findbar-find-previous {
+  margin-inline-start: 8px !important;
+}
+:root findbar .findbar-find-next {
+  margin-inline-start: 4px !important;
+}
+
+/* The match counter is empty until you type, but my styling forced it to show
+   as an empty 16px box plus two 8px gaps, which made the space before the X
+   too big. Keep it hidden whenever Firefox hides it or its value is empty.
+   (":empty" must NOT be used here: the text is stored in a value attribute,
+   so the element has no child nodes and would be hidden even with a result.) */
+:root findbar .found-matches[hidden],
+:root findbar .found-matches[value=""] {
+  display: none !important;
+}

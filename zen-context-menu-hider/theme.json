@@ -1,0 +1,19 @@
+{
+    "id": "zen-context-menu-hider",
+    "name": "Context Menu Hider",
+    "description": "Hide any entry in the tab, page, link and image right-click menus, one checkbox each.",
+    "homepage": "",
+    "style": {
+        "chrome": "chrome.css",
+        "content": ""
+    },
+    "preferences": "preferences.json",
+    "version": "1.0.0",
+    "author": "local",
+    "tags": [
+        "Context menu"
+    ],
+    "fork": [
+        "zen"
+    ]
+}

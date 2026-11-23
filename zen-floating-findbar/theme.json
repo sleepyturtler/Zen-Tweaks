@@ -1,0 +1,19 @@
+{
+    "id": "zen-floating-findbar",
+    "name": "Floating Find Bar",
+    "description": "A floating, rounded, translucent find bar at the bottom center of the page.",
+    "homepage": "",
+    "style": {
+        "chrome": "chrome.css",
+        "content": ""
+    },
+    "preferences": "",
+    "version": "1.0.0",
+    "author": "local",
+    "tags": [
+        "Find bar"
+    ],
+    "fork": [
+        "zen"
+    ]
+}

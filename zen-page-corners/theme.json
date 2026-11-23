@@ -1,0 +1,19 @@
+{
+    "id": "zen-page-corners",
+    "name": "Page Corners Fix",
+    "description": "Gives the page area and its containers one matching corner radius.",
+    "homepage": "",
+    "style": {
+        "chrome": "chrome.css",
+        "content": ""
+    },
+    "preferences": "",
+    "version": "1.0.0",
+    "author": "local",
+    "tags": [
+        "Corners"
+    ],
+    "fork": [
+        "zen"
+    ]
+}
