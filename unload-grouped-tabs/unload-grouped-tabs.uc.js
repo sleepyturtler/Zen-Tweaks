@@ -4,17 +4,41 @@
 // @include        main
 // ==/UserScript==
 
-// Place this file in your profile's chrome/JS folder.
+// Loaded by Sine from this mod's own folder (listed in mods.json).
 // Advanced Tab Groups builds one shared menu (id advanced-tab-groups-context-menu)
 // and remembers the clicked group in advancedTabGroups._contextMenuCurrentGroup.
-// This script adds one item to that menu the first time it opens.
-// No loops, timers or observers.
+// Each tweak can be switched off in the mod's settings (mod.unload-grouped-tabs.*
+// preferences). A tweak is ON when its preference is unset, so nothing depends on
+// Sine having written the defaults.
+// Timers: only a bounded retry (20 x 1 s) to hook Clear. No endless loops.
 
 (() => {
   const MENU_ID = "advanced-tab-groups-context-menu";
   const ITEM_ID = "unload-group-tabs-item";
 
   console.log("[UnloadGroupTabs] loaded");
+
+  const PREF_PREFIX = "mod.unload-grouped-tabs.";
+  function pref(name, fallback = true) {
+    try {
+      return Services.prefs.getBoolPref(PREF_PREFIX + name, fallback);
+    } catch (_) {
+      return fallback;
+    }
+  }
+
+  // Dimmed text for unloaded tabs in groups is done in chrome.css, switched by
+  // an attribute on the window root that follows the "dim-text" preference live.
+  function applyDimAttribute() {
+    try {
+      document.documentElement.toggleAttribute("unloaded-text-dim", pref("dim-text"));
+    } catch (_) {}
+  }
+  applyDimAttribute();
+  const dimObserver = { observe: applyDimAttribute };
+  try {
+    Services.prefs.addObserver(PREF_PREFIX + "dim-text", dimObserver);
+  } catch (_) {}
 
   function currentGroup(popup) {
     return (
@@ -71,6 +95,7 @@
         else popup.appendChild(item);
         console.log("[UnloadGroupTabs] added to", MENU_ID);
       }
+      item.hidden = !pref("menu-entry");
     },
     true
   );
@@ -82,7 +107,7 @@
   //  1. wrap closeAllUnpinnedTabs if it exists on gZenWorkspaces or gBrowser
   //  2. a click listener on the Clear button itself (matched by class, or by
   //     its text "Clear" in English), as a fallback
-  // The tab you are currently on is kept, and so is its group.
+  // The tab you are currently on is kept, and so is its group (setting "keep-current").
   // ------------------------------------------------------------------
   const GROUP_SELECTOR = "tab-group, zen-folder";
   const CLEAR_SELECTOR =
@@ -115,6 +140,7 @@
   }
 
   function clearGroups() {
+    if (!pref("clear-groups")) return;
     const now = Date.now();
     if (now - lastClear < 800) return;
     lastClear = now;
@@ -131,7 +157,7 @@
     for (const g of top) {
       try {
         const list = closableTabs(g);
-        if (list.some((t) => t.selected)) {
+        if (pref("keep-current") && list.some((t) => t.selected)) {
           // Keep the tab you are on (and so its group); close the rest of it.
           for (const t of list) {
             if (!t.selected) {
