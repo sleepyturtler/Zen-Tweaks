@@ -1,29 +1,21 @@
-/* Unloaded tabs inside groups: dim the text like unloaded tabs outside groups.
-   Unloaded tabs carry the attribute pending="true". A mod that dims unloaded
-   tabs only reaches the tab text outside groups, so this adds the same dimming
-   for tabs in tab groups and folders.
-   Change --unloaded-text-opacity to match your Unloaded Tabs mod (lower = dimmer).
-   The rules only apply while the attribute unloaded-text-dim is on the window
-   root, which the script sets from the "dim text" setting. */
+/* Unloaded tabs inside groups: dim them exactly like your Unloaded Tabs mod does
+   for tabs outside groups. That mod uses:
+     .tabbrowser-tab[pending="true"] { filter: grayscale(1); opacity: 0.5; }
+   My first version dimmed only the text of tabs in groups, on top of the mod's
+   own dimming where it reaches them, so the two added up and looked too
+   transparent. This version sets the SAME two values on the tab itself, so the
+   result is identical (setting one value twice does not stack), and !important
+   makes it win over anything in the group styles.
+   Only applies while the attribute unloaded-text-dim is on the window root,
+   which the script sets from the "dim" setting. */
 :root {
-  --unloaded-text-opacity: 0.5;
+  --unloaded-tab-opacity: 0.5;
 }
 
-:root[unloaded-text-dim] tab-group tab[pending] .tab-label-container,
-:root[unloaded-text-dim] tab-group tab[pending] .tab-text,
-:root[unloaded-text-dim] tab-group tab[pending] .tab-label,
-:root[unloaded-text-dim] zen-folder tab[pending] .tab-label-container,
-:root[unloaded-text-dim] zen-folder tab[pending] .tab-text,
-:root[unloaded-text-dim] zen-folder tab[pending] .tab-label {
-  opacity: var(--unloaded-text-opacity) !important;
-}
-
-/* The tab you are on never gets dimmed, even if Firefox still marks it pending. */
-:root[unloaded-text-dim] tab-group tab[selected] .tab-label-container,
-:root[unloaded-text-dim] tab-group tab[selected] .tab-text,
-:root[unloaded-text-dim] tab-group tab[selected] .tab-label,
-:root[unloaded-text-dim] zen-folder tab[selected] .tab-label-container,
-:root[unloaded-text-dim] zen-folder tab[selected] .tab-text,
-:root[unloaded-text-dim] zen-folder tab[selected] .tab-label {
-  opacity: 1 !important;
+:root[unloaded-text-dim] tab-group .tabbrowser-tab[pending="true"],
+:root[unloaded-text-dim] zen-folder .tabbrowser-tab[pending="true"],
+:root[unloaded-text-dim] tab-group tab[pending="true"],
+:root[unloaded-text-dim] zen-folder tab[pending="true"] {
+  filter: grayscale(1) !important;
+  opacity: var(--unloaded-tab-opacity) !important;
 }
