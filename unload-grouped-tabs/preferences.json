@@ -1,0 +1,26 @@
+[
+  {
+    "property": "mod.unload-grouped-tabs.menu-entry",
+    "label": "Show \"Unload All Tabs\" in the tab group menu",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.unload-grouped-tabs.dim-text",
+    "label": "Dim the text of unloaded tabs inside groups",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.unload-grouped-tabs.clear-groups",
+    "label": "Clear button also closes groups and the tabs inside them",
+    "type": "checkbox",
+    "defaultValue": true
+  },
+  {
+    "property": "mod.unload-grouped-tabs.keep-current",
+    "label": "Clear keeps the tab you are on (and its group)",
+    "type": "checkbox",
+    "defaultValue": true
+  }
+]
