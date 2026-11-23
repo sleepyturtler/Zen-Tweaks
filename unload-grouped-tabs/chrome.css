@@ -1,0 +1,27 @@
+/* Unloaded tabs inside groups: dim the text like unloaded tabs outside groups.
+   Unloaded tabs carry the attribute pending="true". A mod that dims unloaded
+   tabs only reaches the tab text outside groups, so this adds the same dimming
+   for tabs in tab groups and folders.
+   Change --unloaded-text-opacity to match your Unloaded Tabs mod (lower = dimmer). */
+:root {
+  --unloaded-text-opacity: 0.5;
+}
+
+tab-group tab[pending] .tab-label-container,
+tab-group tab[pending] .tab-text,
+tab-group tab[pending] .tab-label,
+zen-folder tab[pending] .tab-label-container,
+zen-folder tab[pending] .tab-text,
+zen-folder tab[pending] .tab-label {
+  opacity: var(--unloaded-text-opacity) !important;
+}
+
+/* The tab you are on never gets dimmed, even if Firefox still marks it pending. */
+tab-group tab[selected] .tab-label-container,
+tab-group tab[selected] .tab-text,
+tab-group tab[selected] .tab-label,
+zen-folder tab[selected] .tab-label-container,
+zen-folder tab[selected] .tab-text,
+zen-folder tab[selected] .tab-label {
+  opacity: 1 !important;
+}
