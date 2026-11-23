@@ -19,3 +19,6 @@ This mod hides any option from the Zen context menus.
 
 ### Unload Grouped Tabs
 This mod works together with the [Advanced Tab Groups](https://github.com/Vertex-Mods/Advanced-Tab-Groups) mod, adding an option to the context menu to unload all tabs in that folder
+
+<img width="812" height="190" alt="image" src="https://github.com/user-attachments/assets/0141d938-f6be-4c3e-8b51-8ddd8b9c1136" />
+
