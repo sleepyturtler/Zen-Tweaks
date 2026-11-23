@@ -1,7 +1,7 @@
 {
     "id": "unload-grouped-tabs",
     "name": "Unload Grouped Tabs",
-    "description": "Adds an Unload All Tabs entry to the Advanced Tab Groups right-click menu.",
+    "description": "Unload All Tabs in the Advanced Tab Groups menu, dimmed text for unloaded tabs inside groups, and a Clear button that also closes groups.",
     "scripts": {
         "unload-grouped-tabs.uc.js": {
             "include": [
@@ -12,14 +12,15 @@
     },
     "homepage": "",
     "style": {
-        "chrome": "",
+        "chrome": "chrome.css",
         "content": ""
     },
     "preferences": "",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "author": "local",
     "tags": [
-        "Tab Groups"
+        "Tab Groups",
+        "Tabs"
     ],
     "fork": [
         "zen"
