@@ -6,3 +6,16 @@ You will need to install Sine for this to work.
 
 - Copy this repository url and enter it into the github url option in Sine settings.
 - Wait for it to install and then tweak the settings to your liking
+
+## The mods
+### Zen Floating Findbar.
+This is a fork of another mod, fixing a bug where it doesn't appear.
+
+### Zen Page Corners Fix
+This mod fixes the messed up corners on Zen browser.
+
+### Context Menu Hider
+This mod hides any option from the Zen context menus. 
+
+### Unload Grouped Tabs
+This mod works together with the [Advanced Tab Groups](https://github.com/Vertex-Mods/Advanced-Tab-Groups) mod, adding an option to the context menu to unload all tabs in that folder
