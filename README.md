@@ -1,5 +1,5 @@
 # Zen-Tweaks
-A Sine mod to tweak zen to my liking
+Sine mods to tweak zen to my liking
 
 ## Install
 You will need to install Sine for this to work.
