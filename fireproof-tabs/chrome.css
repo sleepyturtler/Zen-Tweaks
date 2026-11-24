@@ -49,3 +49,21 @@
     animation: none !important;
   }
 }
+
+/* Slide the close button (X) in as well, on protected tabs. It eases in from the
+   right while it fades up, with the same timing as the lock's slide so the two move
+   together. Only while the attribute fireproof-x-slide is on the window root, which
+   the script sets from the "slide the close button" setting.
+   Change the 14px to make it travel farther or less far. */
+@keyframes fireproof-x-slide-in {
+  from { transform: translateX(14px); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+:root[fireproof-x-slide] tab[clear-protected]:hover .tab-content > .tab-close-button {
+  animation: fireproof-x-slide-in 0.22s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[fireproof-x-slide] tab[clear-protected] .tab-content > .tab-close-button {
+    animation: none !important;
+  }
+}
