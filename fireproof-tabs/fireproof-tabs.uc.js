@@ -141,6 +141,33 @@
     true
   );
 
+  // ---- Measure the close button once so the lock's slide matches it ----
+  // On the first hover of a protected tab the X is shown; its width (plus margins)
+  // is how far the lock jumps. Stored as --fireproof-slide for chrome.css, and the
+  // tab is marked fireproof-hovered so the slide-back animation only runs after that.
+  window.addEventListener(
+    "mouseover",
+    (e) => {
+      try {
+        const tab = e.target?.closest?.("tab[clear-protected]");
+        if (!tab) return;
+        tab.setAttribute("fireproof-hovered", "true");
+        if (window.__fireproofSlideMeasured) return;
+        const btn = tab.querySelector(".tab-close-button");
+        if (!btn) return;
+        const width = btn.getBoundingClientRect().width;
+        if (width > 0) {
+          const cs = getComputedStyle(btn);
+          const total =
+            width + (parseFloat(cs.marginInlineStart) || 0) + (parseFloat(cs.marginInlineEnd) || 0);
+          document.documentElement.style.setProperty("--fireproof-slide", Math.round(total) + "px");
+          window.__fireproofSlideMeasured = true;
+        }
+      } catch (_) {}
+    },
+    true
+  );
+
   // ---- Skip protected tabs while Clear is running ----
   const inClearWindow = () => pref("enabled") && Date.now() < clearingUntil;
   const beginClearWindow = () => {
