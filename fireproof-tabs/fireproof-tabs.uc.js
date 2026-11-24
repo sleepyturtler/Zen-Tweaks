@@ -9,8 +9,8 @@
 //  - Right-click a tab > "Protect from Clear". That sets the attribute
 //    clear-protected on the tab and saves it in the session (SessionStore custom
 //    tab value), so it survives restarts.
-//  - For about 2 seconds after Clear is pressed, closing a protected tab is
-//    skipped: tab removal is wrapped (removeTab, removeTabs, removeTabGroup). A
+//  - For about 2 seconds after Clear is pressed (and only until you close a tab
+//    yourself), closing a protected tab is skipped: tab removal is wrapped (removeTab, removeTabs, removeTabGroup). A
 //    group holding a protected tab survives, with its other tabs closed.
 //  - Settings are mod.zen-fireproof-tabs.* ; a setting that was never written
 //    counts as ON.
@@ -86,13 +86,29 @@
   } catch (_) {}
 
   // ---- Tab right-click menu entry ----
-  function menuTabs() {
+  // Which tab(s) the menu was opened on. This runs while the menu is opening,
+  // BEFORE Firefox updates TabContextMenu.contextTab, so that value is stale (it
+  // was the cause of protecting the tab you were on instead of the clicked one).
+  // popup.triggerNode is the element that was right-clicked: use its tab.
+  function menuTabs(popup) {
+    let clicked = null;
     try {
-      const tcm = window.TabContextMenu;
-      if (tcm?.contextTabs?.length) return [...tcm.contextTabs];
-      if (tcm?.contextTab) return [tcm.contextTab];
+      clicked = popup.triggerNode?.closest?.("tab") || null;
     } catch (_) {}
-    return gBrowser.selectedTab ? [gBrowser.selectedTab] : [];
+    if (!clicked) {
+      try {
+        clicked = window.TabContextMenu?.contextTab || null;
+      } catch (_) {}
+    }
+    if (!clicked) clicked = gBrowser.selectedTab;
+    let tabs = [clicked];
+    try {
+      // Right-clicked a tab that is part of a multi-selection: apply to all of them.
+      if (clicked?.multiselected && gBrowser.selectedTabs?.length) {
+        tabs = [...gBrowser.selectedTabs];
+      }
+    } catch (_) {}
+    return tabs.filter(Boolean);
   }
 
   document.addEventListener(
@@ -114,7 +130,7 @@
         else popup.appendChild(item);
       }
       // Pinned and essential tabs are already skipped by Clear.
-      const tabs = menuTabs().filter((t) => !t.pinned && !t.hasAttribute("zen-essential"));
+      const tabs = menuTabs(popup).filter((t) => !t.pinned && !t.hasAttribute("zen-essential"));
       item._tabs = tabs;
       item.hidden = !pref("menu-entry") || !tabs.length;
       item.setAttribute(
@@ -130,6 +146,47 @@
   const beginClearWindow = () => {
     clearingUntil = Date.now() + CLEAR_WINDOW_MS;
   };
+  // Closing a tab yourself (its X button, middle click, Ctrl+W, or the right-click
+  // Close entries) always works, even on a protected tab: those actions end the
+  // protection window at once, so only Clear is ever blocked.
+  const cancelClearWindow = () => {
+    clearingUntil = 0;
+  };
+  window.addEventListener(
+    "mousedown",
+    (e) => {
+      try {
+        if (e.target?.closest?.(".tab-close-button")) cancelClearWindow();
+      } catch (_) {}
+    },
+    true
+  );
+  window.addEventListener(
+    "mouseup",
+    (e) => {
+      try {
+        if (e.button === 1 && e.target?.closest?.("tab")) cancelClearWindow();
+      } catch (_) {}
+    },
+    true
+  );
+  window.addEventListener(
+    "keydown",
+    (e) => {
+      if ((e.ctrlKey || e.metaKey) && (e.key === "w" || e.key === "W" || e.key === "F4")) {
+        cancelClearWindow();
+      }
+    },
+    true
+  );
+  document.addEventListener(
+    "command",
+    (e) => {
+      const id = e.target && e.target.id;
+      if (typeof id === "string" && id.startsWith("context_close")) cancelClearWindow();
+    },
+    true
+  );
 
   function patchBrowser() {
     if (gBrowser.__fireproofPatched) return;
