@@ -1,30 +1,24 @@
 /* Fireproof Tabs: a small lock at the right side of every tab that is protected from
-   Clear, vertically centered. Zen's own close button takes that spot while you hover
-   the tab, so the lock fades out then. The title gets a little room on the right so
-   it ends before the lock instead of running under it.
+   Clear. The lock is a normal item in the tab's row, placed just BEFORE Zen's close
+   button (the X). So when the X appears on hover, the lock is pushed left to make
+   room for it, and when the X is hidden the lock sits at the right edge. This does
+   not depend on any hover rule.
    Only shown while the attribute fireproof-marker is on the window root, which the
-   script sets from the "show marker" setting.
-   - right: 12px moves the lock toward or away from the edge. */
-:root[fireproof-marker] tab[clear-protected] .tab-content {
-  position: relative !important;
-}
-:root[fireproof-marker] tab[clear-protected] .tab-label-container {
-  padding-inline-end: 18px !important;
-}
+   script sets from the "show marker" setting. */
 :root[fireproof-marker] tab[clear-protected] .tab-content::after {
   content: "";
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+  flex: none;
+  order: 50;
+  align-self: center;
   width: 11px;
   height: 11px;
+  margin-inline: 4px 10px;
   background-color: currentColor;
   opacity: 0.7;
   pointer-events: none;
-  transition: opacity 0.15s ease;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M5 7V5a3 3 0 1 1 6 0v2h1a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1zm1.5 0h3V5a1.5 1.5 0 1 0-3 0v2z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
-:root[fireproof-marker] tab[clear-protected]:hover .tab-content::after {
-  opacity: 0;
+/* Keep the close button after the lock in the row. */
+:root[fireproof-marker] tab[clear-protected] .tab-content > .tab-close-button {
+  order: 60 !important;
 }
