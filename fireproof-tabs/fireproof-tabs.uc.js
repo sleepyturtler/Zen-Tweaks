@@ -85,6 +85,18 @@
     Services.prefs.addObserver(PREF_PREFIX + "show-marker", markerObserver);
   } catch (_) {}
 
+  // ---- "Slide the close button in" follows its setting live ----
+  function applySlideAttribute() {
+    try {
+      document.documentElement.toggleAttribute("fireproof-x-slide", pref("slide-close-button"));
+    } catch (_) {}
+  }
+  applySlideAttribute();
+  const slideObserver = { observe: applySlideAttribute };
+  try {
+    Services.prefs.addObserver(PREF_PREFIX + "slide-close-button", slideObserver);
+  } catch (_) {}
+
   // ---- Tab right-click menu entry ----
   // Which tab(s) the menu was opened on. This runs while the menu is opening,
   // BEFORE Firefox updates TabContextMenu.contextTab, so that value is stale (it
