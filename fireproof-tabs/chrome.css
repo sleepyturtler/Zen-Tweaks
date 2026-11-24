@@ -22,3 +22,30 @@
 :root[fireproof-marker] tab[clear-protected] .tab-content > .tab-close-button {
   order: 60 !important;
 }
+
+/* Slide animation. The lock sits before the close button, so when the X appears on
+   hover the layout moves the lock left in one jump. These animations start the lock
+   at its old spot and ease it to the new one, so it slides instead of teleporting.
+   --fireproof-slide is the distance (the X button's width); the script measures it
+   on your first hover, and 30px is used until then. */
+@keyframes fireproof-lock-slide-left {
+  from { transform: translateX(var(--fireproof-slide, 30px)); }
+  to   { transform: none; }
+}
+@keyframes fireproof-lock-slide-right {
+  from { transform: translateX(calc(-1 * var(--fireproof-slide, 30px))); }
+  to   { transform: none; }
+}
+:root[fireproof-marker] tab[clear-protected]:hover .tab-content::after {
+  animation: fireproof-lock-slide-left 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+/* Slide back to the edge when the X goes away. Only after the first hover (the
+   script sets fireproof-hovered), so nothing animates at startup. */
+:root[fireproof-marker] tab[clear-protected][fireproof-hovered]:not(:hover) .tab-content::after {
+  animation: fireproof-lock-slide-right 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[fireproof-marker] tab[clear-protected] .tab-content::after {
+    animation: none !important;
+  }
+}
