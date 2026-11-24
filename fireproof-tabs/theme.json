@@ -1,0 +1,28 @@
+{
+    "id": "zen-fireproof-tabs",
+    "name": "Fireproof Tabs",
+    "description": "Mark a tab as protected from Clear, like DuckDuckGo's Fireproof. The sidebar Clear button skips protected tabs.",
+    "scripts": {
+        "fireproof-tabs.uc.js": {
+            "include": [
+                "chrome://browser/content/browser.xhtml"
+            ],
+            "loadOrder": 30
+        }
+    },
+    "homepage": "",
+    "style": {
+        "chrome": "chrome.css",
+        "content": ""
+    },
+    "preferences": "preferences.json",
+    "version": "1.0.0",
+    "author": "local",
+    "tags": [
+        "Tabs",
+        "Clear"
+    ],
+    "fork": [
+        "zen"
+    ]
+}
