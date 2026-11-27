@@ -40,6 +40,18 @@
     Services.prefs.addObserver(PREF_PREFIX + "dim-text", dimObserver);
   } catch (_) {}
 
+  // Label-overlap fix for the Zen Folder Tree Connectors mod follows its setting live.
+  function applyTreeFixAttribute() {
+    try {
+      document.documentElement.toggleAttribute("unload-tree-fix", pref("tree-overlap-fix"));
+    } catch (_) {}
+  }
+  applyTreeFixAttribute();
+  const treeFixObserver = { observe: applyTreeFixAttribute };
+  try {
+    Services.prefs.addObserver(PREF_PREFIX + "tree-overlap-fix", treeFixObserver);
+  } catch (_) {}
+
   function currentGroup(popup) {
     return (
       globalThis.advancedTabGroups?._contextMenuCurrentGroup ||
@@ -157,10 +169,14 @@
     for (const g of top) {
       try {
         const list = closableTabs(g);
-        if (pref("keep-current") && list.some((t) => t.selected)) {
-          // Keep the tab you are on (and so its group); close the rest of it.
+        // Tabs to spare: the one you are on (setting "keep-current") and any tab
+        // protected by the Fireproof Tabs mod (attribute clear-protected).
+        const spare = (t) =>
+          t.hasAttribute("clear-protected") || (pref("keep-current") && t.selected);
+        if (list.some(spare)) {
+          // Keep those tabs (and so the group); close the rest of it.
           for (const t of list) {
-            if (!t.selected) {
+            if (!spare(t)) {
               gBrowser.removeTab(t);
               tabs++;
             }
