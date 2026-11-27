@@ -19,3 +19,19 @@
   filter: grayscale(1) !important;
   opacity: var(--unloaded-tab-opacity) !important;
 }
+
+/* Fix for text drawn twice in a folder tab when the Zen Folder Tree Connectors mod is
+   installed. That mod sets overflow: visible on parent tabs (tab.zen-is-related-parent)
+   so its connector lines can draw outside them. That also reveals a second label Zen
+   normally keeps clipped (the pinned tab's "reset" label), which then shows on top of
+   the real title. This keeps the visible overflow for the connectors but clips the
+   label area again, and keeps the reset label hidden until you hover the tab.
+   Only while the attribute unload-tree-fix is on the window root, which the script sets
+   from the "tree overlap fix" setting. */
+:root[unload-tree-fix] tab.zen-is-related-parent .tab-label-container {
+  overflow: clip !important;
+}
+:root[unload-tree-fix] tab.zen-is-related-parent:not(:hover) .tab-reset-pin-label {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
