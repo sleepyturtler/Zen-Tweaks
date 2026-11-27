@@ -22,5 +22,11 @@
     "label": "Clear keeps the tab you are on (and its group)",
     "type": "checkbox",
     "defaultValue": true
+  },
+  {
+    "property": "mod.unload-grouped-tabs.tree-overlap-fix",
+    "label": "Fix overlapping tab titles in folders (for the Zen Folder Tree Connectors mod)",
+    "type": "checkbox",
+    "defaultValue": true
   }
 ]
